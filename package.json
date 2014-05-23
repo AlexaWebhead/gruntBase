@@ -1,0 +1,15 @@
+{
+  "name": "SampleGrunt",
+  "version": "0.1.0",
+  "author": "Alexa Lohmeyer",
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.0",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-compass": "~0.8.0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-htmlhint": "*",
+    "matchdep": "*"
+  }
+}

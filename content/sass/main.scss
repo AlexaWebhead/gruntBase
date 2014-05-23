@@ -1,0 +1,154 @@
+/* Imports */
+
+$legacy-support-for-ie5: false;
+$legacy-support-for-ie6: false;
+$experimental-support-for-pie: true;
+$pie-behavior: url("/content/css/PIE.htc");
+$pie-base-class: pie-element;
+
+@import "compass";
+@import "compass/css3/pie";
+@import "breakpoint";
+@import "_colors";
+@import "_type";
+@import "_formalize";
+@import "_grid";
+
+/* Global styles */
+
+// Breakpoints
+$mob: max-width 500px;
+$tab: max-width 800px;
+
+* {
+	@include box-sizing(border-box);
+}
+
+.wrapper {
+    width: 95%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* HEADER */
+
+header {
+    background: $blue;
+}
+
+/* NAV */
+
+@import "_nav";
+
+/* MAIN */
+
+main {
+    //
+}
+
+//sidebars
+aside {
+    //
+}
+
+/* FOOTER */
+
+footer {
+    //
+}
+
+/* Custom page styling */
+
+    //homepage
+    @import "pages/*";
+
+/* Helper classes */
+
+.cf {
+    *zoom: 1;
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+/* Retina */
+
+@media (min--moz-device-pixel-ratio: 1.5),
+        (-o-min-device-pixel-ratio: 3/2),
+        (-webkit-min-device-pixel-ratio: 1.5),
+        (min-device-pixel-ratio: 1.5),
+        (min-resolution: 144dpi),
+        (min-resolution: 1.5dppx) {
+    //
+}
+
+/* ============
+   Print styles
+   ============ */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
