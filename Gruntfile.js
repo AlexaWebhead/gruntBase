@@ -67,38 +67,37 @@ module.exports = function(grunt){
           }
         },
 
-        //css lint, combine common selectors
-        cssc: {
-		    build: {
-		        options: {
-		            consolidateViaDeclarations: true,
-		            consolidateViaSelectors:    true,
-		            consolidateMediaQueries:    true
-		        },
-		        files: {
-		            'content/css/main.css': 'content/css/main.css'
-		        }
-		    }
-		},
-
         //Compass
         compass: {                  // Task
 		    dist: {                   // Target
 		      	options: {              // Target options
-		        	cssDir: 'css',
-                	sassDir: 'sass',
-                	imagesDir: 'img',
-                	javascriptsDir: 'js',
-                	fontsDir: 'fonts',
-		        	environment: 'production'
-		      	}
+		        	bundleExec: true,
+                    relativeAssets: true,
+                    httpPath: $themepath,
+                    cssDir: 'css',
+                    sassDir: 'sass',
+                    imagesDir: 'img',
+                    javascriptsDir: 'js',
+                    fontsDir: 'fonts',
+                    assetCacheBuster: 'none',
+                    require: [
+                      'breakpoint',
+                      'chunky_png', 
+                      'sass-globbing', 
+                      'singularitygs', 
+                      'rgbapng', 
+                      'toolkit',
+                    ]
+                }
 		    },
-		    dev: {                    // Another target
-		      	options: {
-		        	sassDir: 'sass',
-		        	cssDir: 'css'
-		      	}
-		    }
+            // Production
+            prod: {
+                options: {
+                    environment: 'production',
+                    outputStyle: 'compressed',
+                    force: true,
+                }
+            }
 		},
 
         // Minimize SVGs
@@ -169,8 +168,8 @@ module.exports = function(grunt){
 		    },
 
             // CSS
-            compass: {
-		        files: ['content/**/*.scss'],
+            css: {
+		        files: [ '**/*.scss', ],
 		        tasks: ['compass']
 		    }
         }
@@ -179,7 +178,8 @@ module.exports = function(grunt){
 
     // 3. Grunt tasks
     grunt.registerTask('default', [
-    	'compass',
+    	'watch',
+        'compass',
     	'htmlhint'
     ]);
 

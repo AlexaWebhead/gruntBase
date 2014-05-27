@@ -17,8 +17,8 @@ $pie-base-class: pie-element;
 /* Global styles */
 
 // Breakpoints
-$mob: max-width 500px;
-$tab: max-width 800px;
+$mob: max-width 480px;
+$tab: max-width 768px;
 
 * {
 	@include box-sizing(border-box);
@@ -33,7 +33,7 @@ $tab: max-width 800px;
 /* HEADER */
 
 header {
-    background: $blue;
+    background: $red;
 }
 
 /* NAV */
