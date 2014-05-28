@@ -1,18 +1,13 @@
 /* Imports */
 
-$legacy-support-for-ie5: false;
-$legacy-support-for-ie6: false;
-$experimental-support-for-pie: true;
-$pie-behavior: url("/content/css/PIE.htc");
-$pie-base-class: pie-element;
-
 @import "compass";
 @import "compass/css3/pie";
+@import "compass/reset";
 @import "breakpoint";
 @import "_colors";
 @import "_type";
-@import "_formalize";
 @import "_grid";
+@import "_formalize";
 
 /* Global styles */
 
@@ -24,16 +19,17 @@ $tab: max-width 768px;
 	@include box-sizing(border-box);
 }
 
-.wrapper {
-    width: 95%;
-    max-width: 1000px;
-    margin: 0 auto;
+body {
+    margin: 0;
 }
 
 /* HEADER */
 
 header {
     background: $red;
+    h1 {
+        margin: 0;
+    }
 }
 
 /* NAV */
@@ -43,18 +39,25 @@ header {
 /* MAIN */
 
 main {
-    //
+    @include column(8, left);
+    background: $blue;
+    div {
+        @include column(4, left, nested);
+        background: $white;
+    }
 }
 
 //sidebars
 aside {
-    //
+    @include column(4, right);
+    background: $green;
 }
 
 /* FOOTER */
 
 footer {
-    //
+    background: $red;
+    clear: both;
 }
 
 /* Custom page styling */
@@ -64,7 +67,7 @@ footer {
 
 /* Helper classes */
 
-.cf {
+@mixin cf {
     *zoom: 1;
     &:before,
     &:after {

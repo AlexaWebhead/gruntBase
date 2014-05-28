@@ -1,44 +1,16 @@
-// Breakpoints
-$mob: max-width 500px;
-$tab: max-width 800px;
-
 body {
     font-size: 100%;
     line-height: 1;
     font-family:'Univers LT W01 45 Light', Helvetica, Arial, sans-serif;
-    color: $med-gray;
+    color: $gray;
 }
 
 a {
     text-decoration: none;
-    color: $gray;
+    color: $black;
     &:hover, &:focus, &.active {
         color: $red;
-        outline: none;
-    }
-    &:active,
-    &:hover,
-    &:focus {
         outline: 0;
-    }
-    &.more {
-        color: $blue;
-        &:hover, &:focus {
-            color: $red;
-        }
-    }
-    &.rss_link {
-        padding-left: 18px;
-        background:url(../img/interface/feed-icon.gif) left center no-repeat;
-    }
-}
-
-ul.square {
-    margin-bottom: 20px;
-    padding-left: 18px;
-    list-style: square;
-    li {
-        margin-bottom: 10px;
     }
 }
 
@@ -46,32 +18,14 @@ p {
     margin: 0 0 15px;
     line-height: 1.5;
     &.lead {
-        margin: 0;
         font-size: 1.250em;
-        line-height: 1.2;
-        + .lead, + p {
-            margin-top: 15px;
-        }
     }
-    + h4 {
-        margin-top: 35px;
-    }
-}
-
-#content li {
-    line-height: 1.5;
-}
-
-li p {
-    margin-bottom: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family:'UniversLTW01-47LightCn';
     font-style: normal;
     font-weight: 100;
-    line-height: 1;
-    margin: 0;
     small {
         font-size: 0.522em;
     }
@@ -82,58 +36,16 @@ h1 {
 h2 {
     font-size: 2.500em;
 }
-h1, h2 { 
-    margin: 40px 0 30px;
-    font-family:'UniversLTW01-47LightCnO';
-    line-height: .9;
-    text-transform: uppercase; 
-    color: $gray; 
-    @include breakpoint($tab) {
-        font-size: 2.188em;
-    }
-    small {
-        font-size: 0.320em;
-        line-height: 4.75;
-        @include breakpoint($tab) {
-            font-size: .420em;
-            line-height: 3.25;
-        }
-    }
-    a {
-        color: $gray;
-    }
-}
 h3 { 
-    font-family:'UniversLTW01-47LightCnO';
     font-size: 1.875em; 
-    text-transform: uppercase; 
-    color: $d-gray; 
-    strong, b {
-        font-family:'LinotypeUniversW01-BdCn';
-        display: block;
-    }
-    a {
-        color: $d-gray;
-    }
 }
 h4 { 
-    margin-bottom: 10px;
-    font-family:'Univers LT W01 65 Bold';
     font-size: 1.250em;
-    line-height: 1.2;
-    color: $med-gray;
-    a {
-        color: $med-gray;
-    } 
 }
 h5 { 
-    margin-bottom: 10px;
-    font-family:'Univers LT W01 65 Bold';
     font-size: 1.250em; 
 }
 h6 { 
-    margin-bottom: 5px;
-    font-family:'Univers LT W01 65 Bold';
     font-size: 1em;
 }
 
@@ -144,12 +56,6 @@ abbr[title] {
 em, i {
     font-family:'UniversLTW01-47LightCnO';
     font-style: normal;
-}
-
-b,
-strong {
-    font-family:'Univers LT W01 65 Bold';
-    font-weight: normal;
 }
 
 blockquote {

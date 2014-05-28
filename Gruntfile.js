@@ -28,7 +28,7 @@ module.exports = function(grunt){
 		            // Prevent using the same ID multiple times in a document
 		            'id-unique': true,
 		            // Prevent script tags being loaded in the body for performance reasons
-		            'head-script-disabled': true,
+		            'head-script-disabled': false,
 		            // Prevent style tags. CSS should be loaded through css files
 		            'style-disabled': true
 		        },
@@ -73,12 +73,11 @@ module.exports = function(grunt){
 		      	options: {              // Target options
 		        	bundleExec: true,
                     relativeAssets: true,
-                    httpPath: $themepath,
-                    cssDir: 'css',
-                    sassDir: 'sass',
-                    imagesDir: 'img',
-                    javascriptsDir: 'js',
-                    fontsDir: 'fonts',
+                    cssDir: 'content/css',
+                    sassDir: 'content/sass',
+                    imagesDir: 'content/img',
+                    javascriptsDir: 'content/js',
+                    fontsDir: 'content/fonts',
                     assetCacheBuster: 'none',
                     require: [
                       'breakpoint',
@@ -91,13 +90,13 @@ module.exports = function(grunt){
                 }
 		    },
             // Production
-            prod: {
+            /*prod: {
                 options: {
                     environment: 'production',
                     outputStyle: 'compressed',
                     force: true,
                 }
-            }
+            }*/
 		},
 
         // Minimize SVGs
@@ -156,21 +155,22 @@ module.exports = function(grunt){
         // Watch
         watch: {
 
-            // Live Reload
-            options: {
-                livereload: true,
-            },
-
             //Html
             html: {
 		        files: ['index.html'],
-		        tasks: ['htmlhint']
+		        tasks: ['htmlhint'],
+                options: {
+                    livereload: true,
+                },
 		    },
 
             // CSS
             css: {
 		        files: [ '**/*.scss', ],
-		        tasks: ['compass']
+		        tasks: ['compass'],
+                options: {
+                    livereload: true,
+                },
 		    }
         }
 
